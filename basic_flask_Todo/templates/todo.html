@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+    {% block title %}
+    <title>Todo App</title>
+    {% endblock %}
+  </head>
+
+  <body>
+    
+    {% block content %}
+   
+    <div class="container">
+      <form method="POST" action="/">
+        <input type="text" class="todo-input" name="content" id="content" placeholder='Enter your todo' />
+        <button class="todo-button" type="submit">
+          <i class="fas fa-plus-square"></i>
+        </button>
+        <div class="select">
+          <select class="filter-todo" name="status" id="status">
+            <option value="Uncomplete" name="status" id="status"
+              >Uncomplete</option
+            >
+            <option value="Completed" name="status" id="status"
+              >Complete</option
+            >
+          </select>
+        </div>
+      </form>
+    </div>
+    <!-- graph -->
+
+
+  
+  <div style='width:50%; position: relative; float:right; margin-top:100px' class="container">
+    <!-- display graph -->
+    <div id="chart" class="chart"></div>
+</div>
+    <!-- end graph -->
+
+    <div class='container' mt-5>
+      <button type="button" class="btn btn-dark position-relative">
+  Completed Task
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{data}}
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+ <button type="button" class="btn btn-dark position-relative">
+  Pending Task
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{data2}}
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+
+
+
+    </div>
+    
+    <div class="center-column" style='width:50%; position: absolute; float:left; margin-top:60px' >
+      {% with messages = get_flashed_messages() %}
+      <!--  -->
+      {% if messages %}
+      <!--  -->
+      {% for msg in messages %}
+      <!--  -->
+      <div class="alert alert-success animate__heartBeat" role="alert">
+          {{msg}}
+      </div>
+
+      <!--  -->
+      {% endfor %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endwith %}
+     
+      {% for todo in todos %}
+      <div class="todo-list">
+        <!-- getting the completed -->
+        {% if todo.status == 'Uncomplete'%}
+        <div class="item-row ">
+          <a class="btn btn-sm btn-info" href="/edit/{{todo.id}}">Update</a>
+          <a class="btn btn-sm btn-danger" href="/delete/{{todo.id}}">Delete</a>
+
+          <span>{{todo.content}}</span>
+          <br>
+           <spam class='date'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg></spam>
+        
+        </div>
+        {% else %}
+         <div class="item-row-complete">
+          <a class="btn btn-sm btn-info" href="/edit/{{todo.id}}">Update</a>
+          <a class="btn btn-sm btn-danger" id="delete" href="/delete/{{todo.id}}">Delete</a>
+
+          <span>{{todo.content}}</span>
+          <br>
+          <span class='date'>  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+</svg></span>
+        </div>
+        {% endif %}
+       
+      </div>
+      {% endfor %}
+    </div>
+      
+    <!-- the graph -->
+ 
+    {% endblock %}
+
+   
+
+
+  <!-- <spam class='date'>{{todo.entry_date.strftime('%Y-%m-%d : %H:%M')}}</spam> -->

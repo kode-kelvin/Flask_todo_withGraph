@@ -1,0 +1,187 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+body {
+  /* background-color: rgb(1, 28, 44); */
+  background-color: rgb(255, 255, 255);
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #d3d3d3;
+  font-size: 20px;
+}
+
+.submit {
+  background-color: #6ba3e8;
+}
+
+.center-column {
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+.item-row {
+  background-color: #01203a;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0px -1px 10px -4px rgba(0, 0, 0, 0.75);
+}
+.item-row-complete {
+  background-color: rgb(39, 44, 44);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0px -1px 10px -4px rgba(0, 0, 0, 0.75);
+}
+
+.btn-danger {
+  background-color: #ff6f47;
+  border-color: #ff6f47;
+}
+
+/*  */
+
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+}
+form button {
+  color: #ff6f47;
+  background: #f7fffe;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover {
+  background: #ff6f47;
+  color: white;
+}
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 1s ease;
+}
+.filter-todo {
+  padding: 1rem;
+}
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.complete-btn {
+  background: #ff6f47;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.complete-btn {
+  background: rgb(11, 212, 162);
+}
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/*CUSTOM SELECTOR */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background-image: none;
+}
+
+/* Custom Select */
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+select {
+  color: #ff6f47;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 15rem;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background: #ff6f47;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.date {
+  float: right;
+  position: relative;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/*  */
+.pendingTasks {
+  float: center;
+  margin-right: 400px;
+}

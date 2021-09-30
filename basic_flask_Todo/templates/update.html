@@ -1,0 +1,55 @@
+<!-- <br /><br /><br />
+<form action="/edit/{{todo.id}}" method="post">
+  Content:<input
+    type="text"
+    name="content"
+    id="content"
+    value="{{todo.content}}"
+  />
+  <br />
+
+  Status:<select
+    class="form-select"
+    aria-label="Default select example"
+    name="status"
+    id="status"
+    style="width: 170px"
+  >
+    <option value="Uncomplete" name="status" id="status">Uncomplete</option>
+    <option value="Completed" name="status" id="status">Complete</option>
+  </select>
+  <!--  -->
+
+<!-- <br />
+  <input type="submit" value="submit" />
+</form> -->
+{% extends 'base.html' %}
+
+<!-- title -->
+
+{% block title %}
+<title>Update-todo-id={{todo.id}}</title>
+{% endblock %}
+<!-- content -->
+{% block content %}
+<div class="container">
+  <form action="/edit/{{todo.id}}" method="post">
+    <input
+      type="text"
+      class="todo-input"
+      name="content"
+      id="content"
+      value="{{todo.content}} "
+    />
+    <button class="todo-button" type="submit">
+      <i class="fas fa-plus-square"></i>
+    </button>
+    <div class="select">
+      <select class="filter-todo" name="status" id="status">
+        <option value="Uncomplete" name="status" id="status">Uncomplete</option>
+        <option value="Completed" name="status" id="status">Complete</option>
+      </select>
+    </div>
+  </form>
+</div>
+{% endblock %}
